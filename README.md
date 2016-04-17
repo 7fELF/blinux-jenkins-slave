@@ -1,2 +1,4 @@
-# blinux-jenkins-slave
-Epitech Blinux slave image for Jenkins Docker Plugin
+#Blinux Jenkins Slave
+##Epitech Blinux slave image for Jenkins Docker Plugin
+User: jenkins
+Password: jenkins
