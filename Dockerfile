@@ -1,15 +1,11 @@
-FROM  epitechcontent/blinux
+FROM antoinebaudrand/blinux
 
-RUN zypper -n install git wget  zlib-devel libopenssl-devel
+RUN zypper -n install git openssh
+RUN /usr/bin/ssh-keygen -A
 
-ADD http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz /
+RUN useradd jenkins && \
+    mkdir -p /home/jenkins && \
+    chown jenkins /home/jenkins && \
+    echo "jenkins:jenkins" | chpasswd
 
-WORKDIR /
-RUN tar xvf openssh-7.2p2.tar.gz
-WORKDIR openssh-7.2p2
-RUN ./configure && make install && /usr/bin/ssh-keygen -A
-
-RUN useradd jenkins && mkdir -p /home/jenkins
-RUN echo "jenkins:jenkins" | chpasswd
-
-CMD ["/usr/sbin/sshd", "-D"]
+EXPOSE 22
