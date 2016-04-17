@@ -3,6 +3,7 @@ FROM  epitechcontent/blinux
 RUN zypper -n install git wget  zlib-devel libopenssl-devel
 
 ADD http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.2p2.tar.gz /
+
 WORKDIR /
 RUN tar xvf openssh-7.2p2.tar.gz
 WORKDIR openssh-7.2p2
