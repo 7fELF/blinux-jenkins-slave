@@ -1,6 +1,6 @@
 FROM antoinebaudrand/blinux
 
-RUN zypper -n install git openssh
+RUN zypper -n install git openssh wget curl
 RUN /usr/bin/ssh-keygen -A
 
 RUN useradd jenkins && \
